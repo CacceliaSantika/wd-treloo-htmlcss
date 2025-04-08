@@ -1,42 +1,242 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Treloo Travel Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treloo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      height: 100%;
+    }
+
+    .hero {
+      background: url('https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/pexels-francesco-ungaro-2835436%201.png') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      img alt ="logo treloo" src="logo.png"
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links .blog-button {
+      background-color: #ffffff;
+      color: #333;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    .booking-form {
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .switcher {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .switcher button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #eee;
+    }
+
+    .switcher button.active {
+      background-color: #333;
+      color: white;
+    }
+
+    .form-fields {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .form-fields input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-button {
+      padding: 12px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <!-- SECTION 1: Header & Hero -->
-  <header>
-    <!-- TODO: Tambahkan logo, menu navigasi, dan tombol Blog -->
-  </header>
 
-  <section class="hero">
-    <!-- TODO: Tambahkan heading, subheading, background image -->
-    <!-- TODO: Tambahkan form pencarian (Flight/Hotel, input lokasi & tanggal) -->
-  </section>
+  <div class="hero">
+    <div class="navbar">
+      <div class="logo">Treloo</div>
+      <div class="nav-links">
+        <a href="#">Review</a>
+        <a href="#">Tips</a>
+        <a href="#">Alerts</a>
+        <a href="#" class="blog-button">Blog</a>
+      </div>
+    </div>
 
-  <!-- SECTION 2: Recommended Destination -->
-  <section class="recommended">
-    <!-- TODO: Tambahkan tab navigasi dan 4 kartu destinasi -->
-  </section>
+    <div class="hero-content">
+      <h1>Discover Your Life, Travel Where You Want</h1>
+      <p>Temukan destinasi impianmu dan buat perjalananmu jadi pengalaman tak terlupakan dengan Treloo.</p>
 
-  <!-- SECTION 3: Travel Any Corner Info -->
-  <section class="global-info">
-    <!-- TODO: Tambahkan gambar, angka statistik, dan teks promosi -->
-  </section>
+      <div class="booking-form">
+        <div class="switcher">
+          <button class="active" onclick="switchTab('flight')">Flight</button>
+          <button onclick="switchTab('hotel')">Hotel</button>
+        </div>
+        <div class="form-fields">
+          <input type="text" placeholder="From">
+          <input type="text" placeholder="To">
+          <input type="date" placeholder="Depart">
+          <input type="date" placeholder="Return">
+        </div>
+        <button class="search-button">Search</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- SECTION 4: Promo dan Footer -->
-  <section class="promo">
-    <!-- TODO: Tambahkan teks promo dan tombol daftar -->
-  </section>
+  <script>
+    function switchTab(type) {
+      const buttons = document.querySelectorAll('.switcher button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (type === 'flight') {
+        buttons[0].classList.add('active');
+      } else {
+        buttons[1].classList.add('active');
+      }
+      // You can add logic to actually switch form inputs later
+    }
+  </script>
 
-  <footer>
-    <!-- TODO: Tambahkan copyright dan navigasi bawah -->
-  </footer>
+  <section style="padding: 60px 40px; background-color: #f8f8f8; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">Recommended Destination</h2>
+
+  <div style="text-align: center; margin-bottom: 40px;">
+    <button style="padding: 10px 20px; margin: 0 10px; border: none; background-color: #0077cc; color: white; border-radius: 20px;">Popular</button>
+    <button style="padding: 10px 20px; margin: 0 10px; border: none; background-color: #ddd; border-radius: 20px;">Adventure</button>
+    <button style="padding: 10px 20px; margin: 0 10px; border: none; background-color: #ddd; border-radius: 20px;">Beach</button>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    <!-- Card 1 -->
+    <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/unsplash_DlkF4-dbCOU.png" alt="Bali" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 15px;">
+        <h3 style="margin-bottom: 5px;">Mountain</h3>
+        <p style="color: gray; font-size: 14px;">Swiss</p>
+        <p style="color: #f5a623;">★★★★★</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/unsplash_K_TbABnVzHo.png" alt="Swiss Alps" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 15px;">
+        <h3 style="margin-bottom: 5px;">Tree</h3>
+        <p style="color: gray; font-size: 14px;">Bali</p>
+        <p style="color: #f5a623;">★★★★☆</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/unsplash_CSpjU6hYo_0.png" alt="Machu Picchu" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 15px;">
+        <h3 style="margin-bottom: 5px;">Mountain</h3>
+        <p style="color: gray; font-size: 14px;">Peru</p>
+        <p style="color: #f5a623;">★★★★☆</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <img src="https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/unsplash_Ai2TRdvI6gM.png" alt="Santorini" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 15px;">
+        <h3 style="margin-bottom: 5px;">Beach</h3>
+        <p style="color: gray; font-size: 14px;">Greece</p>
+        <p style="color: #f5a623;">★★★★★</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section style="display: flex; flex-wrap: wrap; align-items: center; padding: 60px 40px; background-color: #fff; font-family: Arial, sans-serif;">
+  <!-- Gambar + Info Box -->
+  <div style="flex: 1; min-width: 300px; position: relative; padding-right: 30px;">
+    <img src="https://raw.githubusercontent.com/irwanphan/wd-treloo-htmlcss/refs/heads/main/assets/unsplash_Q1p7bh3SHj8.png" 
+         alt="Traveler" 
+         style="width: 100%; border-radius: 15px; object-fit: cover;">
+
+    <!-- Kotak Info -->
+    <div style="position: absolute; top
+
+
 </body>
-
 </html>
